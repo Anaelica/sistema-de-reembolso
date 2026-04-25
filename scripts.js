@@ -42,4 +42,16 @@ form.onsubmit = (e) => {
         created_at: new Date(),
     }
 
+    //chama a função que vai adicionar o item na lista.
+    expenseAdd(newExpense)
+}
+
+function expenseAdd(newExpense){
+    try {
+        //Cria o elemento de li para adicionar o item na lista.
+        const expenseItem = document.createElement("li")
+        expenseItem.classList.add("expense")
+    } catch (error) {
+
+    }
 }
