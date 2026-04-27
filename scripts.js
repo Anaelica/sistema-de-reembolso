@@ -7,6 +7,7 @@ const category = document.getElementById("category")
 //Seleciona os elementos da Lista.
 const expenseList = document.querySelector("ul")
 const expenseQuantity = document.querySelector("aside header p span")
+const expenseTotal = document.querySelector("aside header h2")
 
 //captura o evento de input para formatar o valor. 
 amount.oninput = () => {
@@ -49,6 +50,7 @@ form.onsubmit = (e) => {
     //chama a função que vai adicionar o item na lista.
     expenseAdd(newExpense)
 }
+
 //Adiciona um novo item na lista. 
 function expenseAdd(newExpense){
     try {
@@ -85,13 +87,13 @@ function expenseAdd(newExpense){
         const removeIcon = document.createElement("img")
         removeIcon.classList.add("remove-icon")
         removeIcon.setAttribute("src", "img/remove.svg")
-        removeIcon.setAttribute("all", "Remover")
+        removeIcon.setAttribute("alt", "Remover")
 
         //Adiciona as informações no item 
-        expense.append(expenseIcon, expenseInfo, expenseAmount, removeIcon)
+        expenseItem.append(expenseIcon, expenseInfo, expenseAmount, removeIcon)
         
         //Adiciona o item na lista.
-        expenseList.append(expenseIcon)
+        expenseList.append(expenseItem)
 
         //atualiza o total
         updateTotals()
@@ -106,10 +108,32 @@ function updateTotals(){
     try {
         //Recupera todos os Itens da lista
         const items = expenseList.children
-        
+
         expenseQuantity.textContent = `${items.length} 
         ${items.length > 1 ? "Despesas" : "Despesa"}`
 
+        //Variavel que incrementa o total. 
+        let total = 0 
+
+        //Percorre e faz a soma 
+        for(let item = 0; item < items.length; item++){
+            const itemAmount = items[item].querySelector(".expense-amount")
+
+            //Remove formatação e pega apenas números
+            let value = itemAmount.textContent.replace(/[^\d]/g, "").replace(",", ".")
+
+            //Converte o valor pra número 
+            value = Number(value) 
+
+            //Verifica se é um numero 
+            if(isNaN(value)){
+                return alert("O valor não é um numero")
+            }
+
+            total += value
+        }
+
+        expenseTotal.textContent = total
     } catch (error) {
         console.log("Não foi possivel atualizar os totais.")
     }
