@@ -49,6 +49,10 @@ form.onsubmit = (e) => {
 
     //chama a função que vai adicionar o item na lista.
     expenseAdd(newExpense)
+
+    expense.value = ""
+    category.value = ""
+    amount.value = ""
 }
 
 //Adiciona um novo item na lista. 
@@ -120,7 +124,7 @@ function updateTotals(){
             const itemAmount = items[item].querySelector(".expense-amount")
 
             //Remove formatação e pega apenas números
-            let value = itemAmount.textContent.replace(/[^\d]/g, "").replace(",", ".")
+            let value = itemAmount.textContent.replace(/[^\d,]/g, "").replace(",", ".")
 
             //Converte o valor pra número 
             value = Number(value) 
@@ -133,8 +137,18 @@ function updateTotals(){
             total += value
         }
 
-        expenseTotal.textContent = total
+
+        const symbolBRL = document.createElement("small")
+        symbolBRL.textContent = "R$"
+
+        //Formata o valor e remove o R$ que será exibido pela Small com um estilo costumizado.
+        total = formatCurrencyBRL(total).toUpperCase().replace("R$", "")
+
+        expenseTotal.innerHTML = ""
+
+        expenseTotal.append(symbolBRL, total)
     } catch (error) {
         console.log("Não foi possivel atualizar os totais.")
     }
 }
+
