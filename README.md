@@ -4,7 +4,13 @@ Projeto desenvolvido com JavaScript para gerenciamento de despesas, permitindo a
 
 ---
 
-## 📌 Funcionalidades
+## Preview do Projeto
+
+![Preview do Projeto](./img/project/prooject-refund.png)
+
+---
+
+## Funcionalidades
 
 -  Adicionar despesas
 -  Selecionar categorias
@@ -17,7 +23,7 @@ Projeto desenvolvido com JavaScript para gerenciamento de despesas, permitindo a
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - HTML5
 - CSS3
@@ -25,7 +31,7 @@ Projeto desenvolvido com JavaScript para gerenciamento de despesas, permitindo a
 
 ---
 
-## 🧠 Conceitos Trabalhados
+## Conceitos Trabalhados
 
 - Manipulação do DOM
 - Eventos JavaScript
@@ -38,7 +44,6 @@ Projeto desenvolvido com JavaScript para gerenciamento de despesas, permitindo a
 - Tratamento de erros com try/catch
 
 ---
-
 
 ## Como Executar
 
@@ -61,7 +66,6 @@ index.html
 - Salvar dados no LocalStorage
 - Editar despesas
 - Filtro por categorias
-
 
 ---
 
