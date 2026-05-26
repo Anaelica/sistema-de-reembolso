@@ -1,4 +1,4 @@
-# 💸 Sistema de Controle de Despesas
+# Sistema de Controle de Despesas
 
 Projeto desenvolvido com JavaScript para gerenciamento de despesas, permitindo adicionar, remover e calcular gastos dinamicamente.
 
