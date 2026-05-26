@@ -53,6 +53,8 @@ form.onsubmit = (e) => {
     expense.value = ""
     category.value = ""
     amount.value = ""
+
+    expense.focus()
 }
 
 //Adiciona um novo item na lista. 
@@ -152,3 +154,21 @@ function updateTotals(){
     }
 }
 
+//Criando evento que captura evento de clique na lista 
+expenseList.addEventListener("click", function (event) {
+    //Verifica se o elemento clicado é o icone de remover 
+    if(event.target.classList.contains("remove-icon")){
+        //obtem o item pai 
+       const item = event.target.closest(".expense")
+
+        const resposta = confirm("Deseja remover este item?")
+
+        if (resposta) {
+            item.remove()
+        } else {
+            console.log("Usuário cancelou")
+        }
+    }
+
+    updateTotals()
+} )
